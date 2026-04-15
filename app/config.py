@@ -1,10 +1,4 @@
 from pathlib import Path
-"""
-config.py
----------
-Shared configuration for all Glean API calls.
-Imported by search.py, chat.py, and indexer.py.
-"""
 
 import os
 from dotenv import load_dotenv
