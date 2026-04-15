@@ -1,21 +1,3 @@
-"""
-indexer.py
-----------
-One-time script to index the Banks & Banjo LLC HR documents into a Glean datasource.
-
-Uses the /bulkindexdocuments endpoint, which is the right choice here because:
-- We're doing a full, clean load of all docs (not an incremental update)
-- It guarantees any previously indexed stale docs are removed
-- It's atomic: Glean treats the upload as a single batch
-
-Flow:
-  1. Read each .txt file from the documents/ directory
-  2. Build a Glean DocumentDefinition for each file
-  3. POST all docs to /bulkindexdocuments in a single request
-     (isFirstPage=True, isLastPage=True since our set is small)
-  4. Print status — success or error details
-"""
-
 import os
 import uuid
 import json
